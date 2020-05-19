@@ -1,0 +1,16 @@
+<div class="list-item">
+    <div class="list-item__label">list item</div>
+    <div class="list-item__inner">
+        <h3 class="list-item__header"><LinkTo @route="list" @model={{ @model.id }}>{{ @model.name }}</LinkTo></h3>
+        <ul class="list-item__content">
+            {{#each @model.todos key="id" as |todo|}}
+                <li class="list-item__todo">
+                    <TodoItem @model={{ todo }} />
+                </li>
+            {{/each}}
+        </ul>
+        <div class="list-item__append">
+            <TodoPicker @list={{ @model }} />
+        </div>
+    </div>
+</div>

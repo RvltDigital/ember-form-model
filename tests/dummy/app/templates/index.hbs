@@ -1,0 +1,7 @@
+<h2 class="page-title">Your todo lists<LinkTo @route="new-list" class="cta-btn">+</LinkTo></h2>
+
+<div class="list-wrapper">
+    {{#each this.model key="id" as |list|}}
+        <ListItem @model={{ list }} />
+    {{/each}}
+</div>

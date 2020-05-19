@@ -1,0 +1,301 @@
+/*
+ * General
+ */
+.page-title {
+    text-align: center
+}
+
+.cta-btn {
+    text-decoration: none;
+    border: 1px solid navy;
+    color: navy;
+    padding: 0 7px;
+    margin: 0 10px;
+    border-radius: 4px;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance: none;
+    background: transparent;
+    border-radius: 3px;
+    border: 1px solid navy;
+    width: 12px;
+    height: 12px;
+    margin: 3px;
+    vertical-align: bottom;
+    box-sizing: unset;
+}
+
+input[type='checkbox']:checked {
+    background: lightgreen;
+}
+
+
+/*
+ * List Item
+ */
+
+.list-item {
+    width: 300px;
+}
+
+.list-item__label {
+    color: gray;
+    font-weight: bolder;
+}
+
+.list-item__inner {
+    border: 1px solid gray;
+    margin: 8px 20px;
+    padding: 10px 8px 15px 8px;
+}
+
+.list-item__header {
+    text-decoration: underline;
+    margin: 0.1em 0;
+}
+
+.list-item__content {
+    padding: 0;
+    list-style: none;
+    margin: 15px 0 0 0;
+}
+
+.list-item__todo {
+    margin: 15px 0;
+    padding: 0 7px;
+    border-left: 2px solid navy;
+}
+
+
+/*
+ * Todo Item
+ */
+
+.todo-item {
+    display: flex;
+}
+
+.todo-item {
+    display: flex;
+}
+
+.todo-item__loader {
+    margin: 3px;
+}
+
+.todo-item__task {
+    flex: 1 1 auto;
+    padding-left: 5px;
+}
+
+
+/*
+ * Todo Item
+ */
+
+.todo-picker {
+    padding: 5px;
+    white-space: nowrap;
+}
+
+.todo-picker__input {
+    -webkit-appearance: none;
+    box-shadow: none;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid navy;
+    font-size: 1.1em;
+    padding: 10px 5px 3px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    padding-right: 25px;
+}
+
+.todo-picker__input:read-only {
+    padding-right: 25px;
+}
+
+
+.todo-picker__loader {
+    display: inline-block;
+    margin-left: -20px;
+}
+
+
+/*
+ * Loader
+ */
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+}
+
+.loader {
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 0.2em solid rgba(255, 255, 255, 0.2);
+  border-right: 0.2em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0.2em solid rgba(255, 255, 255, 0.2);
+  border-left: 0.2em solid navy;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load 0.8s infinite linear;
+  animation: load 0.8s infinite linear;
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+/*
+ * List Form
+ */
+
+.list-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.list-form__component-label {
+    color: gray;
+    font-weight: bolder;
+}
+
+.list-form__inner {
+    border: 1px solid gray;
+    margin: 8px 20px;
+    padding: 10px 8px 15px 8px;
+}
+
+.list-form__group {
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding: 8px 3px;
+}
+
+.list-form__label {
+    font-weight: bold;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    margin-left: -10px;
+    color: darkslategray;
+}
+
+.list-form__input {
+    -webkit-appearance: none;
+    box-shadow: none;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid navy;
+    font-size: 1.2em;
+    padding: 10px 5px 3px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.list-form__no-todo {
+    font-style: italic;
+    color: gray;
+    text-align: center;
+}
+
+.list-form__footer {
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list-form__submit-btn {
+    display: inline-block;
+    border: 1px solid navy;
+    padding: 5px 15px;
+    margin: 0;
+    text-decoration: none;
+    background: transparent;
+    color: navy;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+}
+
+.list-form__submit-btn .loader {
+    margin: 2px;
+}
+
+.list-form__submit-btn.is-error {
+    border: 1px solid gray;
+    color: gray;
+    background: #8080802e;
+    cursor: not-allowed;
+}
+
+.list-form__todo {
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding: 8px 3px;
+    display: flex;
+}
+
+.list-form__todo input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+    align-self: center;
+    margin-right: 15px;
+}
+
+
+/*
+ * List Form
+ */
+
+ .menu {
+    padding: 5px;
+ }
+
+ .menu__item {
+    font-size: 1.1em;
+    padding: 5px 10px;
+ }
+
+
+ /*
+  * List Wrapper
+  */
+
+ .list-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+ }
+
+ .list-wrapper > * {
+    flex: 0 0 auto;
+ }

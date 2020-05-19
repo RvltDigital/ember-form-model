@@ -1,0 +1,6 @@
+<div class="todo-picker">
+    <Input @type="text" @value={{ this.task }} @enter={{fn this.save}} placeholder="Add todo" class="todo-picker__input" readonly={{ this.processing }} />
+    {{#if this.processing}}
+        <div class="todo-picker__loader loader"></div>
+    {{/if}}
+</div>

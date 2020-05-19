@@ -1,0 +1,10 @@
+<div class="todo-item">
+    {{#if this.processing }}
+        <div class="todo-item__loader loader"></div>
+    {{else}}
+        <div class="todo-item__checkbox">
+            <Input id="{{ this.guid }}-done" @type="checkbox" checked={{ @model.isDone }} onchange={{ this.toggleIsDone }} />
+        </div>
+    {{/if}}
+    <label class="todo-item__task" for="{{ this.guid }}-done">{{ @model.task }}</label>
+</div>

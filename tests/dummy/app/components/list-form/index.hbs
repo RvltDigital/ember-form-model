@@ -1,0 +1,33 @@
+<div class="list-form">
+    <div class="list-form__component-label">list form</div>
+    <div class="list-form__inner">
+        <div class="list-form__group">
+            <label for="{{ this.guid }}-name" class="list-form__label">Name</label>
+            <Input @value={{ @model.name }} @type="text" class="list-form__input" id="{{ this.guid }}-name" />
+        </div>
+
+        <div class="list-form__group">
+            <label for="{{ this.guid }}-name" class="list-form__label">Tasks</label>
+            <a href="javascript:void(0)" class="cta-btn" onclick={{ this.addTodo }}>+</a>
+        </div>
+
+        {{#each @model.todos as |todo|}}
+            <div class="list-form__todo">
+                <Input @type="checkbox" @checked={{ todo.isDone }} />
+                <Input @value={{ todo.task }} @type="text" class="list-form__input"/>
+            </div>
+        {{else}}
+            <div class="list-form__no-todo">none</div>
+        {{/each}}
+
+        <div class="list-form__footer">
+            <button type="button" class="list-form__submit-btn{{if this.isInvalid " is-error"}}" name="button" onclick={{ this.save }} disabled={{ this.processing }}>
+                {{#if this.processing}}
+                    <div class="loader"></div>
+                {{else}}
+                    Save
+                {{/if}}
+            </button>
+        </div>
+    </div>
+</div>
