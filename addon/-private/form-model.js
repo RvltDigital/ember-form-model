@@ -4,7 +4,7 @@ import ArrayProxy from '@ember/array/proxy';
 import PromiseProxyMixin from '@ember/object/promise-proxy-mixin';
 import ObjectProxy from '@ember/object/proxy';
 import { all, resolve } from 'rsvp';
-import EmberObject, { computed, defineProperty } from '@ember/object';
+import EmberObject, { computed, defineProperty, set } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { capitalize } from '@ember/string';
 import Snapshot from './snapshot';
@@ -45,7 +45,7 @@ class FormModel extends EmberObject
         if (source._internalModel.modelName !== this._modelClass.modelName) {
             throw new Error(`Source is not instance of '${this._modelClass.modelName}' model.`);
         }
-        this._source = source;
+        set(this, '_source', source);
         await this.reset();
     }
 
