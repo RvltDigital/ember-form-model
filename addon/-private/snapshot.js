@@ -45,18 +45,24 @@ class Snapshot
             return undefined;
         }
 
-        let type;
-        this.type.eachRelationship((name, meta) => name === keyName && (type = meta.type));
-        const id = get(this, `_data.relations.${keyName}.id`) || this._data.relations[`_${keyName}`];
-
-        if (id) {
-            if (options && options.id === true) {
-                return id;
-            }
-            return this._owner.lookup('service:store')._internalModelForResource({ id, type }).createSnapshot();
+        let id = null;
+        if (this._data.relations[keyName] === undefined) {
+            id = this._data.relations[`_${keyName}`];
+        } else {
+            id = get(this, `_data.relations.${keyName}.id`) || null;
         }
 
-        return null;
+        if (id === null) {
+            return null;
+        }
+
+        if (options && options.id === true) {
+            return id;
+        }
+
+        let type;
+        this.type.eachRelationship((name, meta) => name === keyName && (type = meta.type));
+        return this._owner.lookup('service:store')._internalModelForResource({ id, type }).createSnapshot();
     }
 
     changedAttributes()
@@ -80,18 +86,23 @@ class Snapshot
             return undefined;
         }
 
-        let type;
-        this.type.eachRelationship((name, meta) => name === keyName && (type = meta.type));
         const relation = this._data.relations[keyName];
-        const store = this._owner.lookup('service:store');
-        const ids = relation? relation.map((item) => item.id): this._data.relations[`_${keyName}`];
+        let ids = [];
+        if (relation === undefined) {
+            ids = this._data.relations[`_${keyName}`];
+        } else if (relation) {
+            ids = relation.map((item) => item.id);
+        }
 
         if (options && options.id === true) {
             return ids;
         }
 
         const result = [];
-        ids.forEach((id) => id && result.push(store._internalModelForResource({ id, type }).createSnapshot()))
+        let type;
+        this.type.eachRelationship((name, meta) => name === keyName && (type = meta.type));
+        const store = this._owner.lookup('service:store');
+        ids.forEach((id) => id && result.push(store._internalModelForResource({ id, type }).createSnapshot()));
         return result;
     }
 

@@ -163,7 +163,7 @@ class FormModel extends EmberObject
                 this._data.relations[name] = value;
             };
             descriptor.get = () => {
-                if (this._data.relations[name]) {
+                if (this._data.relations[name] !== undefined) {
                     return this._data.relations[name];
                 }
                 const id = this._data.relations[`_${name}`];
@@ -189,7 +189,7 @@ class FormModel extends EmberObject
                 this._data.relations[name] = value;
             };
             descriptor.get = () => {
-                if (this._data.relations[name]) {
+                if (this._data.relations[name] !== undefined) {
                     return this._data.relations[name];
                 }
                 const ids = this._data.relations[`_${name}`];
